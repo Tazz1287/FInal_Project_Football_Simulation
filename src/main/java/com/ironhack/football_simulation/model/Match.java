@@ -3,7 +3,7 @@ package com.ironhack.football_simulation.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "`match`")
+@Table(name = "football_match")
 public class Match {
 
     @Id
