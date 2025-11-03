@@ -74,4 +74,9 @@ public class Match {
     public void setPlayed(Boolean played) {
         this.played = played;
     }
+
+    public String getResult() {
+        if (!played) return "Not Played";
+        return homeScore + " - " + awayScore;
+    }
 }
