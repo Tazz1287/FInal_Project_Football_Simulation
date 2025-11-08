@@ -91,6 +91,10 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/api/people/players/*").hasAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/people/players/*").hasAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/people/coaches/*").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers("/api/players/club/*").permitAll()
+                        .requestMatchers("/api/people/club/**").permitAll()
+                        .requestMatchers("/api/people/players/club/**").permitAll()
+
                         .anyRequest().authenticated());
 
         // add the custom authentication filter to the http security object

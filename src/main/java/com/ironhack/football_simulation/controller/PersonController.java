@@ -4,6 +4,7 @@ import com.ironhack.football_simulation.model.Coach;
 import com.ironhack.football_simulation.model.Player;
 import com.ironhack.football_simulation.service.PersonService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -58,5 +59,12 @@ class PersonController {
     @GetMapping("/players/{playerName}")
     public Player getPlayerbyName(@PathVariable String playerName) {
         return personService.getPlayerByName(playerName);
+    }
+
+//
+    @GetMapping("players/club/{clubName}")
+    public ResponseEntity<List<Player>> getPlayersByClubName(@PathVariable String clubName) {
+        List<Player> players = personService.getPlayersByClubName(clubName);
+        return ResponseEntity.ok(players);
     }
 }

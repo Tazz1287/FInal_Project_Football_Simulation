@@ -14,7 +14,7 @@ public class PersonService {
     private final PlayerRepository playerRepository;
     private final CoachRepository coachRepository;
 
-    PersonService(PlayerRepository playerRepository, CoachRepository coachRepository) {
+    public PersonService(PlayerRepository playerRepository, CoachRepository coachRepository) {
         this.playerRepository = playerRepository;
         this.coachRepository = coachRepository;
     }
@@ -47,6 +47,10 @@ public class PersonService {
 
     public void deletePlayer(String playerName) {
         playerRepository.deleteByName(playerName);
+    }
+
+    public List<Player> getPlayersByClubName(String clubName) {
+        return playerRepository.findByClub_Name(clubName);
     }
 
     public Player getPlayerByName(String playerName) {
